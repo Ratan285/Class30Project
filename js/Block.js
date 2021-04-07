@@ -18,20 +18,20 @@ class Block{
       display(){
         var angle = this.body.angle;
         var pos= this.body.position;
-        
+
+        if (this.body.speed<3){
         push();
         translate(pos.x, pos.y);
         rotate(angle);
         rectMode(CENTER);
         rect(0,0,this.width, this.height);
-         pop();
-        if (this.body.speed<3){
-          this.display();
-        }else{
+        pop();
+        }
+        else{
           push();
           World.remove(world, this.body);
-          this.visibility = this.visibility-5;
-          TransitionEvent(255, this.visibility);
+          this.visibility = this.visibility-1;
+          tint(255, this.visibility);
           pop();
         }
        
